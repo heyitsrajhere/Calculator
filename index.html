@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Calculator using JS
+	</title>
+</head>
+  <style>
+	.container{
+		text-align: center;
+		margin-top: 23px;
+	}
+	h1{
+		margin-top: 30px;
+		margin-bottom: 40px;
+		margin-left: 478px;
+		font-family: cursive;
+		color: cadetblue;
+		background:linear-gradient(#bcf3ff,#b3e1bfcc);;
+		width: 538px;
+		border-radius: 20px;
+		border: 5px solid azure;
+	}
+	table{
+		margin: auto;
+	}
+	input{
+		font-size: 30px;
+		border: 5px solid #2da790;
+		border-radius: 15px;
+		margin-bottom: 10px;
+  		width: 400px;
+  		color: cadetblue;
+	}
+	button{
+		font-size: 30px;
+		background: #34e2c3;
+		width: 90px;
+		height: 65px;
+		border-radius: 20px;
+	}
+	td{
+		padding: 10px;
+	}
+	.calculator{
+		display: inline-block;
+ 		border: 2px solid #248085;
+		border-radius: 31px;
+		background: #24e65563;
+		padding: 41px;
+	}
+
+
+  </style>
+<body>
+	<div class="container">
+		<h1>Calculator By Soni Technical</h1>
+		<div class="calculator">
+		<input type="text" name="screen" id="screen">
+
+		<table>
+
+			<tr>
+			<td><button>(</button></td>
+			<td><button>)</button></td>
+			<td><button>c</button></td>
+			<td><button>%</button></td>
+	     	</tr>
+
+	     	<tr>
+			<td><button>7</button></td>
+			<td><button>8</button></td>
+			<td><button>9</button></td>
+			<td><button>X</button></td>
+	     	</tr>
+
+	     	<tr>
+			<td><button>4</button></td>
+			<td><button>5</button></td>
+			<td><button>6</button></td>
+			<td><button>-</button></td>
+	     	</tr>
+
+	     	<tr>
+			<td><button>3</button></td>
+			<td><button>2</button></td>
+			<td><button>1</button></td>
+			<td><button>+</button></td>
+	     	</tr>
+
+	     	<tr>
+			<td><button>0</button></td>
+			<td><button>.</button></td>
+			<td><button>/</button></td>
+			<td><button>=</button></td>
+	     	</tr>
+	</table>
+    </div>
+</div>
+
+	<script>
+		let screen =document.getElementById('screen')
+		buttons = document.querySelectorAll('button')
+		let screenValue = '';
+		for(item of buttons){
+			item.addEventListener('click',(e)=>{
+				buttonText = e.target.innerText;
+				console.log('button text is ', buttonText)
+				if(buttonText=="X")
+				{
+					buttonText = "*";
+					screenValue +=buttonText;
+					screen.value = screenValue;
+				}
+				else if(buttonText == "c")
+				{
+					screenValue ="";
+					screen.value = screenValue;
+				}
+				else if(buttonText == "=")
+				{
+					screen.value = eval(screenValue);
+				}
+				else
+				{
+					screenValue +=buttonText;
+					screen.value = screenValue;
+				}
+			})
+		}
+	</script>
+</body>
+</html>
